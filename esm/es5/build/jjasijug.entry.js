@@ -1,0 +1,1 @@
+import{h}from"../fontumi-chat.core.js";var VoiceCall=function(){function e(){}return e.prototype.render=function(){return h("div",null)},Object.defineProperty(e,"is",{get:function(){return"voide-call"},enumerable:!0,configurable:!0}),Object.defineProperty(e,"encapsulation",{get:function(){return"shadow"},enumerable:!0,configurable:!0}),e}();export{VoiceCall as VoideCall};

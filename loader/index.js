@@ -1,0 +1,1 @@
+export * from '../esm/es5/fontumi-chat.define.js';

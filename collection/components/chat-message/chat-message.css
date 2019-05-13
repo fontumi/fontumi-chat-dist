@@ -1,0 +1,118 @@
+#chat-message {
+  margin: 10px 5px;
+}
+
+.chat-message-name {
+  font-size: 12px !important;
+  color: #464646 !important;
+  font-weight: 300 !important;
+}
+
+.chat-message-body {
+  padding: 5px 10px !important;
+  border-radius: 1px !important;
+  margin: 0 !important;
+  color: white !important;
+}
+
+p.chat-message-text {
+  border-radius: 5px;
+  display: inline-flex !important;
+  padding: 10px;
+  color: white;
+  margin-bottom: 5px;
+}
+
+p {
+  padding: 0;
+  margin: 0;
+}
+
+p.chat-message-text,
+.chat-message-card,
+.chat-message-image,
+.chat-message-quick-replies {
+  margin-bottom: 10px;
+}
+
+.chat-message-card,
+.chat-message-image,
+.chat-message-quick-replies > .replie {
+  transition: 0.3s;
+  border-radius: 1px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.chat-message-card:hover,
+.chat-message-image:hover,
+.chat-message-quick-replies > .replie:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* MESSAGE CARD */
+
+.chat-message-card {
+  padding: 2px;
+}
+
+.chat-message-card > .container {
+  padding: 2px 16px;
+  padding-bottom: 20px;
+}
+
+.chat-message-card > .container > h4 {
+  margin: 0;
+}
+
+.chat-message-card > .container > .buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding-top: 10px;
+}
+
+.chat-message-card > .container > .buttons > a {
+  border: 1px solid;
+  padding: 6px 10px;
+  font-size: 15px;
+  margin-bottom: 3px;
+  margin-right: 3px;
+  text-decoration: none;
+  border-radius: 1px;
+}
+
+.chat-message-card > .container > .buttons > a:hover {
+  background: #e9e9e9 !important;
+}
+
+.chat-message-card > .container > .buttons > a:visited {
+  color: black;
+}
+
+/* IMAGE */
+.chat-message-image {
+  padding: 10px;
+}
+
+/* QUICKREPLIES */
+.chat-message-quick-replies {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.chat-message-quick-replies > .replie {
+  font-size: 13px;
+  border-radius: 3px;
+  background: white;
+  padding: 10px;
+  margin-right: 10px;
+  margin-bottom: 4px;
+  user-select: none;
+
+  display: flex;
+  text-align: center;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+}

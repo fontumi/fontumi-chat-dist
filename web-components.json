@@ -1,0 +1,45 @@
+{
+  "tags": [
+    {
+      "label": "bubble-button",
+      "description": "",
+      "attributes": []
+    },
+    {
+      "label": "chat-card-byfontumi",
+      "description": "",
+      "attributes": []
+    },
+    {
+      "label": "chat-container",
+      "description": "",
+      "attributes": []
+    },
+    {
+      "label": "chat-message-card",
+      "description": "",
+      "attributes": []
+    },
+    {
+      "label": "fontumi-chat-wrapper",
+      "description": "",
+      "attributes": []
+    },
+    {
+      "label": "call-icon",
+      "description": "",
+      "attributes": [
+        {
+          "label": "width",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "label": "voide-call",
+      "description": "",
+      "attributes": []
+    }
+  ]
+}

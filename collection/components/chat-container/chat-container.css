@@ -1,0 +1,21 @@
+#chat-container {
+  min-width: 300px;
+  position: fixed;
+  bottom: 66px !important;
+  transition: opacity 0.3s ease-out;
+  right: 0;
+  z-index: 1000000 !important;
+}
+
+@media (min-width: 750px) {
+  #chat-container {
+    width: 400px !important;
+  }
+}
+
+@media (max-width: 750px) {
+  #chat-container {
+    min-width: auto;
+    width: calc(100vw) !important;
+  }
+}
