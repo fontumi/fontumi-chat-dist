@@ -5,346 +5,213 @@
  */
 
 
-import './stencil.core';
-
-
+import { HTMLStencilElement, JSXBase } from './stencil.core';
 import {
-  MessageCard,
-  MessageImage,
-  MessageQuickReplies,
+  Bot,
 } from './utils/interfaces';
 
-
 export namespace Components {
-
-  interface BubbleButton {
-    'toggleBtn': () => void;
+  interface FontumibotsBubbleButton {
+    'color': string;
   }
-  interface BubbleButtonAttributes extends StencilHTMLAttributes {
-    'onToggle'?: (event: CustomEvent) => void;
+  interface FontumibotsChatContainer {
+    /**
+    * Bot
+    */
+    'bot': Bot;
+    'phoneReady': boolean;
   }
-
-  interface ChatCardByfontumi {}
-  interface ChatCardByfontumiAttributes extends StencilHTMLAttributes {}
-
-  interface ChatCardCall {
-    'hangup': () => Promise<void>;
+  interface FontumibotsChatInput {
+    'props': object;
+    'type': string;
   }
-  interface ChatCardCallAttributes extends StencilHTMLAttributes {}
-
-  interface ChatCardHeader {}
-  interface ChatCardHeaderAttributes extends StencilHTMLAttributes {
-    'onToggleCall'?: (event: CustomEvent) => void;
+  interface FontumibotsIconCall {
+    /**
+    * Icon color
+    */
+    'fill': string;
   }
-
-  interface ChatCardMessages {}
-  interface ChatCardMessagesAttributes extends StencilHTMLAttributes {}
-
-  interface ChatCard {}
-  interface ChatCardAttributes extends StencilHTMLAttributes {}
-
-  interface ChatContainer {}
-  interface ChatContainerAttributes extends StencilHTMLAttributes {}
-
-  interface ChatMessageCard {
-    'card': MessageCard;
+  interface FontumibotsIconClose {
+    /**
+    * Icon color
+    */
+    'fill': string;
+    /**
+    * Icon height
+    */
+    'height': number;
+    /**
+    * Icon width
+    */
+    'width': number;
   }
-  interface ChatMessageCardAttributes extends StencilHTMLAttributes {
-    'card'?: MessageCard;
+  interface FontumibotsIconEndCall {
+    'fill': string;
   }
-
-  interface ChatMessageImage {
-    'image': MessageImage;
+  interface FontumibotsIconMessages {
+    /**
+    * Icon color
+    */
+    'fill': string;
+    /**
+    * Icon height
+    */
+    'height': number;
+    /**
+    * Icon width
+    */
+    'width': number;
   }
-  interface ChatMessageImageAttributes extends StencilHTMLAttributes {
-    'image'?: MessageImage;
+  interface FontumibotsWidget {
+    /**
+    * Bot unique ID
+    */
+    'botId': string;
   }
-
-  interface ChatMessageQuickReplies {
-    'quickReplies': MessageQuickReplies;
-  }
-  interface ChatMessageQuickRepliesAttributes extends StencilHTMLAttributes {
-    'onClickToReplie'?: (event: CustomEvent) => void;
-    'quickReplies'?: MessageQuickReplies;
-  }
-
-  interface ChatMessageText {
-    'isUser': boolean;
-    'text': string;
-  }
-  interface ChatMessageTextAttributes extends StencilHTMLAttributes {
-    'isUser'?: boolean;
-    'text'?: string;
-  }
-
-  interface ChatMessage {
-    'message': any;
-  }
-  interface ChatMessageAttributes extends StencilHTMLAttributes {
-    'message'?: any;
-    'onReplie'?: (event: CustomEvent) => void;
-  }
-
-  interface FontumiChatWrapper {
-    'hi': () => void;
-  }
-  interface FontumiChatWrapperAttributes extends StencilHTMLAttributes {}
-
-  interface CallIcon {
-    'width': string;
-  }
-  interface CallIconAttributes extends StencilHTMLAttributes {
-    'width'?: string;
-  }
-
-  interface CallbackIcon {
-    'width': string;
-  }
-  interface CallbackIconAttributes extends StencilHTMLAttributes {
-    'width'?: string;
-  }
-
-  interface CloseIcon {}
-  interface CloseIconAttributes extends StencilHTMLAttributes {}
-
-  interface HangupIcon {
-    'width': string;
-  }
-  interface HangupIconAttributes extends StencilHTMLAttributes {
-    'width'?: string;
-  }
-
-  interface MessagesIcon {
-    'width': string;
-  }
-  interface MessagesIconAttributes extends StencilHTMLAttributes {
-    'width'?: string;
-  }
-
-  interface VideoCallIcon {
-    'width': string;
-  }
-  interface VideoCallIconAttributes extends StencilHTMLAttributes {
-    'width'?: string;
-  }
-
-  interface VoideCall {}
-  interface VoideCallAttributes extends StencilHTMLAttributes {}
 }
 
 declare global {
-  interface StencilElementInterfaces {
-    'BubbleButton': Components.BubbleButton;
-    'ChatCardByfontumi': Components.ChatCardByfontumi;
-    'ChatCardCall': Components.ChatCardCall;
-    'ChatCardHeader': Components.ChatCardHeader;
-    'ChatCardMessages': Components.ChatCardMessages;
-    'ChatCard': Components.ChatCard;
-    'ChatContainer': Components.ChatContainer;
-    'ChatMessageCard': Components.ChatMessageCard;
-    'ChatMessageImage': Components.ChatMessageImage;
-    'ChatMessageQuickReplies': Components.ChatMessageQuickReplies;
-    'ChatMessageText': Components.ChatMessageText;
-    'ChatMessage': Components.ChatMessage;
-    'FontumiChatWrapper': Components.FontumiChatWrapper;
-    'CallIcon': Components.CallIcon;
-    'CallbackIcon': Components.CallbackIcon;
-    'CloseIcon': Components.CloseIcon;
-    'HangupIcon': Components.HangupIcon;
-    'MessagesIcon': Components.MessagesIcon;
-    'VideoCallIcon': Components.VideoCallIcon;
-    'VoideCall': Components.VoideCall;
-  }
-
-  interface StencilIntrinsicElements {
-    'bubble-button': Components.BubbleButtonAttributes;
-    'chat-card-byfontumi': Components.ChatCardByfontumiAttributes;
-    'chat-card-call': Components.ChatCardCallAttributes;
-    'chat-card-header': Components.ChatCardHeaderAttributes;
-    'chat-card-messages': Components.ChatCardMessagesAttributes;
-    'chat-card': Components.ChatCardAttributes;
-    'chat-container': Components.ChatContainerAttributes;
-    'chat-message-card': Components.ChatMessageCardAttributes;
-    'chat-message-image': Components.ChatMessageImageAttributes;
-    'chat-message-quick-replies': Components.ChatMessageQuickRepliesAttributes;
-    'chat-message-text': Components.ChatMessageTextAttributes;
-    'chat-message': Components.ChatMessageAttributes;
-    'fontumi-chat-wrapper': Components.FontumiChatWrapperAttributes;
-    'call-icon': Components.CallIconAttributes;
-    'callback-icon': Components.CallbackIconAttributes;
-    'close-icon': Components.CloseIconAttributes;
-    'hangup-icon': Components.HangupIconAttributes;
-    'messages-icon': Components.MessagesIconAttributes;
-    'video-call-icon': Components.VideoCallIconAttributes;
-    'voide-call': Components.VoideCallAttributes;
-  }
 
 
-  interface HTMLBubbleButtonElement extends Components.BubbleButton, HTMLStencilElement {}
-  var HTMLBubbleButtonElement: {
-    prototype: HTMLBubbleButtonElement;
-    new (): HTMLBubbleButtonElement;
+  interface HTMLFontumibotsBubbleButtonElement extends Components.FontumibotsBubbleButton, HTMLStencilElement {}
+  var HTMLFontumibotsBubbleButtonElement: {
+    prototype: HTMLFontumibotsBubbleButtonElement;
+    new (): HTMLFontumibotsBubbleButtonElement;
   };
 
-  interface HTMLChatCardByfontumiElement extends Components.ChatCardByfontumi, HTMLStencilElement {}
-  var HTMLChatCardByfontumiElement: {
-    prototype: HTMLChatCardByfontumiElement;
-    new (): HTMLChatCardByfontumiElement;
+  interface HTMLFontumibotsChatContainerElement extends Components.FontumibotsChatContainer, HTMLStencilElement {}
+  var HTMLFontumibotsChatContainerElement: {
+    prototype: HTMLFontumibotsChatContainerElement;
+    new (): HTMLFontumibotsChatContainerElement;
   };
 
-  interface HTMLChatCardCallElement extends Components.ChatCardCall, HTMLStencilElement {}
-  var HTMLChatCardCallElement: {
-    prototype: HTMLChatCardCallElement;
-    new (): HTMLChatCardCallElement;
+  interface HTMLFontumibotsChatInputElement extends Components.FontumibotsChatInput, HTMLStencilElement {}
+  var HTMLFontumibotsChatInputElement: {
+    prototype: HTMLFontumibotsChatInputElement;
+    new (): HTMLFontumibotsChatInputElement;
   };
 
-  interface HTMLChatCardHeaderElement extends Components.ChatCardHeader, HTMLStencilElement {}
-  var HTMLChatCardHeaderElement: {
-    prototype: HTMLChatCardHeaderElement;
-    new (): HTMLChatCardHeaderElement;
+  interface HTMLFontumibotsIconCallElement extends Components.FontumibotsIconCall, HTMLStencilElement {}
+  var HTMLFontumibotsIconCallElement: {
+    prototype: HTMLFontumibotsIconCallElement;
+    new (): HTMLFontumibotsIconCallElement;
   };
 
-  interface HTMLChatCardMessagesElement extends Components.ChatCardMessages, HTMLStencilElement {}
-  var HTMLChatCardMessagesElement: {
-    prototype: HTMLChatCardMessagesElement;
-    new (): HTMLChatCardMessagesElement;
+  interface HTMLFontumibotsIconCloseElement extends Components.FontumibotsIconClose, HTMLStencilElement {}
+  var HTMLFontumibotsIconCloseElement: {
+    prototype: HTMLFontumibotsIconCloseElement;
+    new (): HTMLFontumibotsIconCloseElement;
   };
 
-  interface HTMLChatCardElement extends Components.ChatCard, HTMLStencilElement {}
-  var HTMLChatCardElement: {
-    prototype: HTMLChatCardElement;
-    new (): HTMLChatCardElement;
+  interface HTMLFontumibotsIconEndCallElement extends Components.FontumibotsIconEndCall, HTMLStencilElement {}
+  var HTMLFontumibotsIconEndCallElement: {
+    prototype: HTMLFontumibotsIconEndCallElement;
+    new (): HTMLFontumibotsIconEndCallElement;
   };
 
-  interface HTMLChatContainerElement extends Components.ChatContainer, HTMLStencilElement {}
-  var HTMLChatContainerElement: {
-    prototype: HTMLChatContainerElement;
-    new (): HTMLChatContainerElement;
+  interface HTMLFontumibotsIconMessagesElement extends Components.FontumibotsIconMessages, HTMLStencilElement {}
+  var HTMLFontumibotsIconMessagesElement: {
+    prototype: HTMLFontumibotsIconMessagesElement;
+    new (): HTMLFontumibotsIconMessagesElement;
   };
 
-  interface HTMLChatMessageCardElement extends Components.ChatMessageCard, HTMLStencilElement {}
-  var HTMLChatMessageCardElement: {
-    prototype: HTMLChatMessageCardElement;
-    new (): HTMLChatMessageCardElement;
+  interface HTMLFontumibotsWidgetElement extends Components.FontumibotsWidget, HTMLStencilElement {}
+  var HTMLFontumibotsWidgetElement: {
+    prototype: HTMLFontumibotsWidgetElement;
+    new (): HTMLFontumibotsWidgetElement;
   };
-
-  interface HTMLChatMessageImageElement extends Components.ChatMessageImage, HTMLStencilElement {}
-  var HTMLChatMessageImageElement: {
-    prototype: HTMLChatMessageImageElement;
-    new (): HTMLChatMessageImageElement;
-  };
-
-  interface HTMLChatMessageQuickRepliesElement extends Components.ChatMessageQuickReplies, HTMLStencilElement {}
-  var HTMLChatMessageQuickRepliesElement: {
-    prototype: HTMLChatMessageQuickRepliesElement;
-    new (): HTMLChatMessageQuickRepliesElement;
-  };
-
-  interface HTMLChatMessageTextElement extends Components.ChatMessageText, HTMLStencilElement {}
-  var HTMLChatMessageTextElement: {
-    prototype: HTMLChatMessageTextElement;
-    new (): HTMLChatMessageTextElement;
-  };
-
-  interface HTMLChatMessageElement extends Components.ChatMessage, HTMLStencilElement {}
-  var HTMLChatMessageElement: {
-    prototype: HTMLChatMessageElement;
-    new (): HTMLChatMessageElement;
-  };
-
-  interface HTMLFontumiChatWrapperElement extends Components.FontumiChatWrapper, HTMLStencilElement {}
-  var HTMLFontumiChatWrapperElement: {
-    prototype: HTMLFontumiChatWrapperElement;
-    new (): HTMLFontumiChatWrapperElement;
-  };
-
-  interface HTMLCallIconElement extends Components.CallIcon, HTMLStencilElement {}
-  var HTMLCallIconElement: {
-    prototype: HTMLCallIconElement;
-    new (): HTMLCallIconElement;
-  };
-
-  interface HTMLCallbackIconElement extends Components.CallbackIcon, HTMLStencilElement {}
-  var HTMLCallbackIconElement: {
-    prototype: HTMLCallbackIconElement;
-    new (): HTMLCallbackIconElement;
-  };
-
-  interface HTMLCloseIconElement extends Components.CloseIcon, HTMLStencilElement {}
-  var HTMLCloseIconElement: {
-    prototype: HTMLCloseIconElement;
-    new (): HTMLCloseIconElement;
-  };
-
-  interface HTMLHangupIconElement extends Components.HangupIcon, HTMLStencilElement {}
-  var HTMLHangupIconElement: {
-    prototype: HTMLHangupIconElement;
-    new (): HTMLHangupIconElement;
-  };
-
-  interface HTMLMessagesIconElement extends Components.MessagesIcon, HTMLStencilElement {}
-  var HTMLMessagesIconElement: {
-    prototype: HTMLMessagesIconElement;
-    new (): HTMLMessagesIconElement;
-  };
-
-  interface HTMLVideoCallIconElement extends Components.VideoCallIcon, HTMLStencilElement {}
-  var HTMLVideoCallIconElement: {
-    prototype: HTMLVideoCallIconElement;
-    new (): HTMLVideoCallIconElement;
-  };
-
-  interface HTMLVoideCallElement extends Components.VoideCall, HTMLStencilElement {}
-  var HTMLVoideCallElement: {
-    prototype: HTMLVoideCallElement;
-    new (): HTMLVoideCallElement;
-  };
-
   interface HTMLElementTagNameMap {
-    'bubble-button': HTMLBubbleButtonElement
-    'chat-card-byfontumi': HTMLChatCardByfontumiElement
-    'chat-card-call': HTMLChatCardCallElement
-    'chat-card-header': HTMLChatCardHeaderElement
-    'chat-card-messages': HTMLChatCardMessagesElement
-    'chat-card': HTMLChatCardElement
-    'chat-container': HTMLChatContainerElement
-    'chat-message-card': HTMLChatMessageCardElement
-    'chat-message-image': HTMLChatMessageImageElement
-    'chat-message-quick-replies': HTMLChatMessageQuickRepliesElement
-    'chat-message-text': HTMLChatMessageTextElement
-    'chat-message': HTMLChatMessageElement
-    'fontumi-chat-wrapper': HTMLFontumiChatWrapperElement
-    'call-icon': HTMLCallIconElement
-    'callback-icon': HTMLCallbackIconElement
-    'close-icon': HTMLCloseIconElement
-    'hangup-icon': HTMLHangupIconElement
-    'messages-icon': HTMLMessagesIconElement
-    'video-call-icon': HTMLVideoCallIconElement
-    'voide-call': HTMLVoideCallElement
+    'fontumibots-bubble-button': HTMLFontumibotsBubbleButtonElement;
+    'fontumibots-chat-container': HTMLFontumibotsChatContainerElement;
+    'fontumibots-chat-input': HTMLFontumibotsChatInputElement;
+    'fontumibots-icon-call': HTMLFontumibotsIconCallElement;
+    'fontumibots-icon-close': HTMLFontumibotsIconCloseElement;
+    'fontumibots-icon-end-call': HTMLFontumibotsIconEndCallElement;
+    'fontumibots-icon-messages': HTMLFontumibotsIconMessagesElement;
+    'fontumibots-widget': HTMLFontumibotsWidgetElement;
   }
-
-  interface ElementTagNameMap {
-    'bubble-button': HTMLBubbleButtonElement;
-    'chat-card-byfontumi': HTMLChatCardByfontumiElement;
-    'chat-card-call': HTMLChatCardCallElement;
-    'chat-card-header': HTMLChatCardHeaderElement;
-    'chat-card-messages': HTMLChatCardMessagesElement;
-    'chat-card': HTMLChatCardElement;
-    'chat-container': HTMLChatContainerElement;
-    'chat-message-card': HTMLChatMessageCardElement;
-    'chat-message-image': HTMLChatMessageImageElement;
-    'chat-message-quick-replies': HTMLChatMessageQuickRepliesElement;
-    'chat-message-text': HTMLChatMessageTextElement;
-    'chat-message': HTMLChatMessageElement;
-    'fontumi-chat-wrapper': HTMLFontumiChatWrapperElement;
-    'call-icon': HTMLCallIconElement;
-    'callback-icon': HTMLCallbackIconElement;
-    'close-icon': HTMLCloseIconElement;
-    'hangup-icon': HTMLHangupIconElement;
-    'messages-icon': HTMLMessagesIconElement;
-    'video-call-icon': HTMLVideoCallIconElement;
-    'voide-call': HTMLVoideCallElement;
-  }
-
-
 }
+
+declare namespace LocalJSX {
+  interface FontumibotsBubbleButton extends JSXBase.HTMLAttributes<HTMLFontumibotsBubbleButtonElement> {
+    'color'?: string;
+    'onToggled'?: (event: CustomEvent<any>) => void;
+  }
+  interface FontumibotsChatContainer extends JSXBase.HTMLAttributes<HTMLFontumibotsChatContainerElement> {
+    /**
+    * Bot
+    */
+    'bot'?: Bot;
+    'phoneReady'?: boolean;
+  }
+  interface FontumibotsChatInput extends JSXBase.HTMLAttributes<HTMLFontumibotsChatInputElement> {
+    'onSendMessage'?: (event: CustomEvent<any>) => void;
+    'props'?: object;
+    'type'?: string;
+  }
+  interface FontumibotsIconCall extends JSXBase.HTMLAttributes<HTMLFontumibotsIconCallElement> {
+    /**
+    * Icon color
+    */
+    'fill'?: string;
+  }
+  interface FontumibotsIconClose extends JSXBase.HTMLAttributes<HTMLFontumibotsIconCloseElement> {
+    /**
+    * Icon color
+    */
+    'fill'?: string;
+    /**
+    * Icon height
+    */
+    'height'?: number;
+    /**
+    * Icon width
+    */
+    'width'?: number;
+  }
+  interface FontumibotsIconEndCall extends JSXBase.HTMLAttributes<HTMLFontumibotsIconEndCallElement> {
+    'fill'?: string;
+  }
+  interface FontumibotsIconMessages extends JSXBase.HTMLAttributes<HTMLFontumibotsIconMessagesElement> {
+    /**
+    * Icon color
+    */
+    'fill'?: string;
+    /**
+    * Icon height
+    */
+    'height'?: number;
+    /**
+    * Icon width
+    */
+    'width'?: number;
+  }
+  interface FontumibotsWidget extends JSXBase.HTMLAttributes<HTMLFontumibotsWidgetElement> {
+    /**
+    * Bot unique ID
+    */
+    'botId'?: string;
+  }
+
+  interface IntrinsicElements {
+    'fontumibots-bubble-button': FontumibotsBubbleButton;
+    'fontumibots-chat-container': FontumibotsChatContainer;
+    'fontumibots-chat-input': FontumibotsChatInput;
+    'fontumibots-icon-call': FontumibotsIconCall;
+    'fontumibots-icon-close': FontumibotsIconClose;
+    'fontumibots-icon-end-call': FontumibotsIconEndCall;
+    'fontumibots-icon-messages': FontumibotsIconMessages;
+    'fontumibots-widget': FontumibotsWidget;
+  }
+}
+
+export { LocalJSX as JSX };
+
+
+declare module "@stencil/core" {
+  export namespace JSX {
+    interface IntrinsicElements extends LocalJSX.IntrinsicElements {}
+  }
+}
+
+
